@@ -1,0 +1,83 @@
+% POST TEST KCB %
+ 
+function komputer
+   
+    semesta = 0:0.1:7;
+   
+    hold on;
+   
+    y = trapmf(semesta, [0 0 0.25 1]);
+    plot(semesta, y, 'm');
+   
+    y = trimf(semesta, [0.5 1.5 2]);
+    plot(semesta, y, 'y');
+ 
+    y = trimf(semesta, [1.5 2 3]);
+    plot(semesta, y, 'r');
+   
+    y = trapmf(semesta, [2 3 7 7]);
+    plot(semesta, y, 'k');
+   
+    hold off;
+   
+   
+    % Membuat X nya lebih dinamis dengan inputan
+    a = input('Masukkan Nilai X : ')
+    x = a/1000
+   
+    % Kecil
+    aKecil = 0;
+    bKecil = 0;
+    cKecil = 0.25;
+    dKecil = 1;
+   
+        % Kondisinya
+        if ( x <= cKecil)
+            miuKeil = 1
+        elseif (x > cKecil && x <= dKecil)
+            miuKecil = (dKecil - x)/(dKecil-cKecil)
+        else
+            miuKecil = 0
+        end
+       
+    % Sedang
+    aSedang = 0.25;
+    bSedang = 1.5;
+    cSedang = 2;
+   
+        % Kondisinya
+        if (x >= aSedang && x <= bSedang)
+            miuSedang = (x-aSedang)/(bSedang-aSedang)
+        elseif (x > bSedang && x <= cSedang)
+            miuSedang = (cSedang - x)/(cSedang-bSedang)
+        else
+            miuSedang = 0
+        end    
+   
+    % Besar
+    aBesar = 1.5;
+    bBesar = 2;
+    cBesar = 3;
+   
+        % Kondisinya
+        if (x >= aBesar && x <= bBesar)
+            miuBesar = (x-aBesar)/(bBesar-aBesar)
+        elseif (x > bBesar && x <= cBesar)
+            miuBesar = (cBesar - x)/(cBesar-bBesar)
+        else
+            miuBesar = 0
+        end          
+ 
+    % SangatBesar
+    aSangatBesar = 2;
+    bSangatBesar = 3;
+    cSangatBesar = 3;
+   
+        if (x >= aSangatBesar && x <= bSangatBesar)
+            miuSangatBesar = (x-aSangatBesar)/(bSangatBesar-aSangatBesar)
+        elseif (x >= bSangatBesar )
+            miuSangatBesar = 1
+        else
+            miuSangatBesar = 0
+        end        
+end
